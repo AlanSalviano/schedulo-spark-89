@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { AppointmentSidebar } from "@/components/AppointmentSidebar";
+import { TopNavbar } from "@/components/TopNavbar";
 import { AppointmentForm } from "@/components/AppointmentForm";
 import { ConfirmationCard } from "@/components/ConfirmationCard";
 import { StatsCards } from "@/components/StatsCards";
-import { Button } from "@/components/ui/button";
-import { Plus, Bell, Search } from "lucide-react";
 
 const Index = () => {
   const [confirmationCode, setConfirmationCode] = useState("");
@@ -33,47 +31,18 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex">
-      {/* Sidebar */}
-      <AppointmentSidebar />
+    <div className="min-h-screen bg-background">
+      {/* Top Navigation */}
+      <TopNavbar />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
-        <div className="p-8 max-w-7xl mx-auto">
-          {/* Header */}
-          <header className="mb-8">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-              <div>
-                <h1 className="text-4xl font-bold text-foreground mb-2">
-                  Appointment Dashboard
-                </h1>
-                <p className="text-lg text-muted-foreground">
-                  Manage your appointments efficiently
-                </p>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <Button variant="outline" size="default" className="gap-2">
-                  <Search className="w-4 h-4" />
-                  Search
-                </Button>
-                <Button variant="ghost" size="icon" className="relative">
-                  <Bell className="w-5 h-5" />
-                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-brand-primary rounded-full"></span>
-                </Button>
-                <Button variant="brand-outline" size="default" className="gap-2">
-                  <Plus className="w-4 h-4" />
-                  Quick Add
-                </Button>
-              </div>
-            </div>
-          </header>
-
+      <main className="overflow-y-auto">
+        <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
           {/* Stats Cards */}
           <StatsCards />
 
           {/* Main Content Grid */}
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 lg:gap-8">
             {/* Form Section */}
             <div className="xl:col-span-2">
               <AppointmentForm
